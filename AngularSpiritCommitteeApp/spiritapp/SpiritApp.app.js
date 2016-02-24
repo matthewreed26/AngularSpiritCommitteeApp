@@ -1,0 +1,1 @@
+﻿angular.module("SpiritApp", ["ui.bootstrap", "NavModule", "EventsModule", "RefModule"]);
