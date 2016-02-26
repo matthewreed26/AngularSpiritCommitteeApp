@@ -3,6 +3,6 @@
     
     function RefController() {
         var rc = this;
-        rc.statuses = ["Future", "Brainstorming", "Logistics"];
+        rc.statuses = ["Future"];
     }
 })();

@@ -1,1 +1,1 @@
-﻿angular.module("SpiritApp", ["ui.bootstrap", "NavModule", "EventsModule", "RefModule"]);
+﻿angular.module("SpiritApp", ["ui.bootstrap", "ngRoute", "NavModule", "EventsModule", "RefModule"]);

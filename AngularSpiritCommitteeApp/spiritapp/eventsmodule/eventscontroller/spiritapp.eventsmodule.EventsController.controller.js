@@ -3,13 +3,19 @@
     
     function EventsController() {
         var ec = this;
-        ec.events = [
-            {
-                title: "Title1"
-            },
-            {
-                title: "Title2"
+        ec.events = [];
+        ec.addEvent = addEvent;
+
+        function addEvent() {
+            if (ec.eventName != undefined && ec.eventName.trim() != "") {
+                ec.events.push({
+                    eventName: ec.eventName,
+                    startDate: new Date(),
+                    endDate: undefined,
+                    isCollapsed: true
+                });
             }
-        ];
+            ec.eventName = "";
+        }
     }
 })();
