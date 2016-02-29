@@ -11,9 +11,11 @@
 </head>
 <body>
     <div class="container" ng-controller="NavController as nc">
-        | <span ng-repeat="link in nc.links">
-            <a href="{{link.url}}">{{link.text}}</a> |
-        </span>
+        <h4>
+            | <span ng-repeat="link in nc.links">
+                <a href="{{link.url}}">{{link.text}}</a> |
+            </span>
+        </h4>
     </div>
     <div ng-view></div>
 

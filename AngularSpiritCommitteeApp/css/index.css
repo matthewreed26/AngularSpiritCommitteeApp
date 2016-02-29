@@ -1,2 +1,14 @@
-﻿body {
+﻿.future, .panel-heading.future {
+    color: black;
+    background-color: white;
+}
+
+.brainstorming, .panel-heading.brainstorming {
+    color: white;
+    background-color: red;
+}
+
+.logistics, .panel-heading.logistics {
+    color: white;
+    background-color: orange;
 }

@@ -2,15 +2,26 @@
     <h1>Events</h1>
     <div class="panel-group" id="accordion">
         <div class="panel panel-default" ng-repeat="event in ec.events">
-            <div class="panel-heading">
+            <div class="panel-heading {{event.currentStatus.statusCode}}">
                 <h4 class="panel-title">
                     <a data-parent="#accordion" ng-click="event.isCollapsed = !event.isCollapsed">{{event.eventName}}</a>
                 </h4>
             </div>
             <div uib-collapse="event.isCollapsed">
                 <div class="panel-body">
-                    <p>Started: {{event.startDate}}</p>
-                    <p>Ended: {{event.endDate}}</p>
+                    <p>Current Status: {{event.currentStatus.statusName}}</p>
+                    <p>Started: {{event.startDate | date:'MMM d, y'}} | Ended: {{event.endDate | date:'MMM d, y'}}</p>
+                    <div>
+                        <button class="btn btn-primary {{event.previousStatus.statusCode}}" ng-click="ec.progressEventBack()">
+                            {{event.previousStatus.statusName}}
+                        </button>
+                        <button class="btn btn-primary {{event.nextStatus.statusCode}}" ng-click="ec.progressEventForward()">
+                            {{event.nextStatus.statusName}}
+                        </button>
+                        <button class="btn btn-primary">
+                            Event History
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
