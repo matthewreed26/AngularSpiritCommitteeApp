@@ -1,6 +1,26 @@
 ﻿<div class="container">
-    <h2>Reference</h2>
-    <div ng-repeat="status in rc.statuses">
-        <a ng-href="{{'#reference/' + status}}">{{status}}</a>
+    <h1>Reference</h1>
+    <div class="panel-group">
+        <div class="panel panel-default" ng-repeat="status in rc.refStatuses">
+            <div class="panel-heading {{status.statusCode}}">
+                <h4 class="panel-title">
+                    {{status.statusName}}
+                </h4>
+            </div>
+            <div class="panel-body" ng-show="(rc.refStatuses[$index - 1].statusCode && rc.refStatuses[$index].canProgressBack)
+                        || rc.refStatuses[$index + 1].statusCode">
+                <p>"{{status.statusName}}" events can progress to:</p>
+                <div>
+                    <button class="btn {{rc.refStatuses[$index - 1].statusCode}}"
+                            ng-show="rc.refStatuses[$index - 1].statusCode && rc.refStatuses[$index].canProgressBack">
+                        {{rc.refStatuses[$index - 1].statusName}}
+                    </button>
+                    <button class="btn {{rc.refStatuses[$index + 1].statusCode}}"
+                            ng-show="rc.refStatuses[$index + 1].statusCode">
+                        {{rc.refStatuses[$index + 1].statusName}}
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

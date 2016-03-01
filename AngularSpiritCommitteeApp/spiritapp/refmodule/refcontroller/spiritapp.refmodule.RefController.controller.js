@@ -1,8 +1,10 @@
 ﻿(function () {
     angular.module("RefModule").controller("RefController", RefController);
+
+    RefController.$inject = ["RefConstants"];
     
-    function RefController() {
+    function RefController(RefConstants) {
         var rc = this;
-        rc.statuses = ["Future"];
+        rc.refStatuses = RefConstants.statuses;
     }
 })();

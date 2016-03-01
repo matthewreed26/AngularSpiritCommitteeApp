@@ -2,25 +2,33 @@
     <h1>Events</h1>
     <div class="panel-group" id="accordion">
         <div class="panel panel-default" ng-repeat="event in ec.events">
-            <div class="panel-heading {{event.currentStatus.statusCode}}">
+            <div class="panel-heading {{ec.refStatuses[event.currentStatusID].statusCode}}"
+                    data-parent="#accordion" ng-click="event.isCollapsed = !event.isCollapsed">
                 <h4 class="panel-title">
-                    <a data-parent="#accordion" ng-click="event.isCollapsed = !event.isCollapsed">{{event.eventName}}</a>
+                    <span ng-show="event.isCollapsed" class="glyphicon glyphicon-plus-sign"></span>
+                    <span ng-show="!event.isCollapsed" class="glyphicon glyphicon-minus-sign"></span>
+                    {{event.eventName}}
                 </h4>
             </div>
             <div uib-collapse="event.isCollapsed">
                 <div class="panel-body">
-                    <p>Current Status: {{event.currentStatus.statusName}}</p>
-                    <p>Started: {{event.startDate | date:'MMM d, y'}} | Ended: {{event.endDate | date:'MMM d, y'}}</p>
-                    <div>
-                        <button class="btn btn-primary {{event.previousStatus.statusCode}}" ng-click="ec.progressEventBack()">
-                            {{event.previousStatus.statusName}}
+                    <p>Current Status: {{ec.refStatuses[event.currentStatusID].statusName}}</p>
+                    <p>Started: {{event.startDate | date:"MMM d, y"}} <span ng-show="event.endDate">| Ended: {{event.endDate | date:'MMM d, y'}}</span></p>
+                    <div ng-show="(ec.refStatuses[event.currentStatusID - 1].statusCode && ec.refStatuses[event.currentStatusID].canProgressBack)
+                        || ec.refStatuses[$index + 1].statusCode">
+                        <button class="btn {{ec.refStatuses[event.currentStatusID - 1].statusCode}}"
+                                ng-show="ec.refStatuses[event.currentStatusID - 1].statusCode && ec.refStatuses[event.currentStatusID].canProgressBack"
+                                ng-click="ec.progressEventBack()">
+                            {{ec.refStatuses[event.currentStatusID - 1].statusName}}
                         </button>
-                        <button class="btn btn-primary {{event.nextStatus.statusCode}}" ng-click="ec.progressEventForward()">
-                            {{event.nextStatus.statusName}}
+                        <button class="btn {{ec.refStatuses[event.currentStatusID + 1].statusCode}}"
+                                ng-show="ec.refStatuses[event.currentStatusID + 1].statusCode"
+                                ng-click="ec.progressEventForward()">
+                            {{ec.refStatuses[event.currentStatusID+1].statusName}}
                         </button>
-                        <button class="btn btn-primary">
-                            Event History
-                        </button>
+                        <a class="btn btn-primary" href="#/events/{{event.eventName}}/{{event.currentStatusID}}/{{event.startDate.toString()}}">
+                            Event Details
+                        </a>
                     </div>
                 </div>
             </div>

@@ -4,10 +4,10 @@
             templateUrl: "spiritapp/refmodule/refviews/ref-view.html",
             controller: "RefController",
             controllerAs: "rc"
-        }).when("/reference/:status", {
-            templateUrl: "spiritapp/refmodule/refviews/ref-detail-view.html",
-            controller: "RefDetailController",
-            controllerAs: "rdc"
+        }).when("/events/:eventName/:currentStatusID/:startDate", {
+            templateUrl: "spiritapp/eventsmodule/eventsviews/event-detail-view.html",
+            controller: "EventDetailController",
+            controllerAs: "edc"
         }).otherwise({
             templateUrl: "spiritapp/eventsmodule/eventsviews/events-view.html",
             controller: "EventsController",

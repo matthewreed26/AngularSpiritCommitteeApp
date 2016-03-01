@@ -111,9 +111,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="scripts\ui-bootstrap-tpls-1.1.2.min.js" />
+    <Content Include="spiritapp\eventsmodule\eventdetailcontroller\spiritapp.eventsmodule.EventDetailController.controller.js" />
+    <Content Include="spiritapp\eventsmodule\eventsviews\event-detail-view.html" />
     <Content Include="spiritapp\refmodule\refcontroller\spiritapp.refmodule.RefController.controller.js" />
-    <Content Include="spiritapp\refmodule\refdetailcontroller\spiritapp.refmodule.RefDetailController.controller.js" />
-    <Content Include="spiritapp\refmodule\refviews\ref-detail-view.html" />
     <Content Include="spiritapp\refmodule\refviews\ref-view.html" />
     <Content Include="spiritapp\refmodule\spiritapp.RefModule.module.js" />
     <Content Include="spiritapp\eventsmodule\eventscontroller\spiritapp.eventsmodule.EventsController.controller.js" />
