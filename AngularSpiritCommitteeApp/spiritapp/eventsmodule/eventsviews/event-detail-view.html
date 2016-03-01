@@ -1,11 +1,13 @@
 ﻿<div class="container">
-    <h1>{{edc.event.eventName}} Details</h1>
+    <h1>{{edc.event.eventName}} History</h1>
     <div class="panel-group">
         <h4>Event Inception: {{edc.event.startDate | date:"MMM d, y"}}</h4>
         <div class="panel panel-default">
-            <div class="panel-heading {{edc.refStatuses[edc.event.currentStatusID].statusCode}}">
+            <div class="panel-heading {{edc.refStatuses[edc.event.currentStatusID].statusCode}}" style="overflow:hidden">
                 <h4 class="panel-title">
-                    {{edc.refStatuses[edc.event.currentStatusID].statusName}}
+                    <span>{{edc.refStatuses[edc.event.currentStatusID].statusName}} <button 
+                            class="btn btn-primary" ng-click="edc.addComment()" style="float: right">Add Comments</button>
+                    </span>
                 </h4>
             </div>
             <div class="panel-body" ng-show="edc.event.comments[0]">
@@ -15,22 +17,6 @@
                 </p>
             </div>
         </div>
-        <h4><span class="glyphicon glyphicon-arrow-down"></span> Moved to [next status here] on [endDate]</h4>
+        <h4><span class="glyphicon glyphicon-arrow-down"></span> It moved to [next status here] on [endDate]</h4>
     </div>
-    <form class="form-horizontal">
-        <div class="form-group">
-            <h2>Add Comment</h2> 
-            <p>Current Status: <span 
-                    class="{{edc.refStatuses[edc.event.currentStatusID].statusCode}}"
-                    >{{edc.refStatuses[edc.event.currentStatusID].statusName}}</span></p>
-            <div>
-                <input class="form-control" ng-model="edc.commentText" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div>
-                <button class="btn btn-primary" ng-click="edc.addComment()">Add</button>
-            </div>
-        </div>
-    </form>
 </div>

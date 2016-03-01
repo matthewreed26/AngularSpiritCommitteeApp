@@ -3,11 +3,12 @@
     <div class="panel-group" id="accordion">
         <div class="panel panel-default" ng-repeat="event in ec.events">
             <div class="panel-heading {{ec.refStatuses[event.currentStatusID].statusCode}}"
-                    data-parent="#accordion" ng-click="event.isCollapsed = !event.isCollapsed">
+                    data-parent="#accordion" ng-click="event.isCollapsed = !event.isCollapsed"
+                    style="overflow:hidden">
                 <h4 class="panel-title">
-                    <span ng-show="event.isCollapsed" class="glyphicon glyphicon-plus-sign"></span>
-                    <span ng-show="!event.isCollapsed" class="glyphicon glyphicon-minus-sign"></span>
                     {{event.eventName}}
+                    <span ng-show="event.isCollapsed" class="glyphicon glyphicon-plus-sign" style="float:right"></span>
+                    <span ng-show="!event.isCollapsed" class="glyphicon glyphicon-minus-sign" style="float:right"></span>
                 </h4>
             </div>
             <div uib-collapse="event.isCollapsed">
@@ -34,17 +35,5 @@
             </div>
         </div>
     </div>
-    <form class="form-horizontal">
-        <div class="form-group">
-            <h2>Add A New Event</h2>
-            <div>
-                <input class="form-control" ng-model="ec.eventName" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div>
-                <button class="btn btn-primary" ng-click="ec.addEvent()">Add</button>
-            </div>
-        </div>
-    </form>
+    <button class="btn btn-primary" ng-click="ec.addEvent()">Add Event</button>
 </div>

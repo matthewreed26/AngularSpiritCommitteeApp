@@ -1,9 +1,9 @@
 ﻿(function () {
     angular.module("EventsModule").controller("EventDetailController", EventDetailController);
     
-    EventDetailController.$inject = ["RefConstants", "$routeParams"];
+    EventDetailController.$inject = ["RefConstants", "$routeParams", "$uibModal"];
 
-    function EventDetailController(RefConstants, $routeParams) {
+    function EventDetailController(RefConstants, $routeParams, $uibModal) {
         var edc = this;
         edc.refStatuses = RefConstants.statuses;
         edc.event = {
@@ -15,13 +15,12 @@
         edc.addComment = addComment;
 
         function addComment() {
-            if (edc.commentText != undefined && edc.commentText.trim() != "") {
-                edc.event.comments.push({
-                    commentText: edc.commentText,
-                    enteredDate: new Date(),
-                });
-            }
-            edc.commentText = "";
+            $uibModal.open({
+                templateUrl: "spiritapp/eventsmodule/eventsviews/add-comment-view.html",
+                size: "lg",
+                controller: "AddCommentController",
+                controllerAs: "acc",
+            }).result.then(function (newComment) { edc.event.comments.push(newComment); });
         }
     }
 })();
