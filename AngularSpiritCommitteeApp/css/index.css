@@ -1,4 +1,8 @@
-﻿.future, .panel-heading.future {
+﻿input.ng-dirty.ng-invalid { background-color:lightpink}
+
+input.ng-dirty.ng-valid {background-color:lightgreen}
+
+.future, .panel-heading.future {
     color: black;
     background-color: white;
     border-color:black
