@@ -5,17 +5,47 @@ input.ng-dirty.ng-valid {background-color:lightgreen}
 .future, .panel-heading.future {
     color: black;
     background-color: white;
-    border-color:black
+    border-color: black
 }
 
 .brainstorming, .panel-heading.brainstorming {
     color: white;
     background-color: red;
-    border-color:red
+    border-color: red
 }
 
 .logistics, .panel-heading.logistics {
     color: white;
     background-color: orange;
-    border-color:orange
+    border-color: orange
+}
+
+.hRFinalApproval, .panel-heading.hRFinalApproval {
+    color: black;
+    background-color: yellow;
+    border-color: yellow
+}
+
+.preparation, .panel-heading.preparation {
+    color: black;
+    background-color: green;
+    border-color: green
+}
+
+.publicizing, .panel-heading.publicizing {
+    color: black;
+    background-color: blue;
+    border-color: blue
+}
+
+.execution, .panel-heading.execution {
+    color: white;
+    background-color: purple;
+    border-color: purple
+}
+
+.completion, .panel-heading.completion {
+    color: white;
+    background-color: black;
+    border-color: black
 }

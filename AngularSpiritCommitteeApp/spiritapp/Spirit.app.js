@@ -15,6 +15,31 @@
                 statusName: "Logistics",
                 statusCode: "logistics",
                 canProgressBack: false
+            },
+            {
+                statusName: "HR Final Approval",
+                statusCode: "hRFinalApproval",
+                canProgressBack: true
+            },
+            {
+                statusName: "Preparation",
+                statusCode: "preparation",
+                canProgressBack: false
+            },
+            {
+                statusName: "Publicizing",
+                statusCode: "publicizing",
+                canProgressBack: false
+            },
+            {
+                statusName: "Execution",
+                statusCode: "execution",
+                canProgressBack: false
+            },
+            {
+                statusName: "Completion",
+                statusCode: "completion",
+                canProgressBack: false
             }
     ]
 });

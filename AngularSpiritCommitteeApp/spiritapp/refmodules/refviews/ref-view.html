@@ -14,10 +14,12 @@
                     <button class="btn {{rc.refStatuses[$index - 1].statusCode}}"
                             ng-show="rc.refStatuses[$index - 1].statusCode && rc.refStatuses[$index].canProgressBack">
                         {{rc.refStatuses[$index - 1].statusName}}
+                        <span class="glyphicon glyphicon-arrow-up"></span>
                     </button>
                     <button class="btn {{rc.refStatuses[$index + 1].statusCode}}"
                             ng-show="rc.refStatuses[$index + 1].statusCode">
                         {{rc.refStatuses[$index + 1].statusName}}
+                        <span class="glyphicon glyphicon-arrow-down"></span>
                     </button>
                 </div>
             </div>

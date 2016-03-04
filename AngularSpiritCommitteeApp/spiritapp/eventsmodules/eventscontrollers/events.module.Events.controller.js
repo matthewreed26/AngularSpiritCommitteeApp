@@ -8,6 +8,8 @@
         ec.refStatuses = RefConstants.statuses;
         ec.events = [];
         ec.addEvent = addEvent;
+        ec.progressEventBack = progressEventBack;
+        ec.progressEventForward = progressEventForward;
 
         function addEvent() {
             $uibModal.open({
@@ -16,6 +18,30 @@
                 controller: "AddEventController",
                 controllerAs: "aec",
             }).result.then(function (newEvent) {ec.events.push(newEvent);});
+        }
+
+        function progressEventBack(event) {
+            $uibModal.open({
+                templateUrl: "spiritapp/eventsmodules/eventsviews/add-comment-view.html",
+                size: "lg",
+                controller: "AddCommentController",
+                controllerAs: "acc",
+            }).result.then(function (newComment) {
+                //edc.event.comments.push(newComment);
+                event.currentStatusID--;
+            });
+        }
+
+        function progressEventForward(event) {
+            $uibModal.open({
+                templateUrl: "spiritapp/eventsmodules/eventsviews/add-comment-view.html",
+                size: "lg",
+                controller: "AddCommentController",
+                controllerAs: "acc",
+            }).result.then(function (newComment) {
+                //edc.event.comments.push(newComment);
+                event.currentStatusID++;
+            });
         }
     }
 })();

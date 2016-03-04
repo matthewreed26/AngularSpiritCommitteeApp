@@ -14,6 +14,7 @@
                 currentStatusID: 1,
                 startDate: new Date(),
                 endDate: undefined,
+                lastUpdated: new Date(),
                 isCollapsed: true
             });
         }
