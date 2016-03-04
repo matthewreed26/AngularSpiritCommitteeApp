@@ -3,6 +3,7 @@
 
     function NavController() {
         var nc = this;
+        nc.isCollapsed = true;
         nc.links = [
             {
                 url: "#/events", text: "Events"

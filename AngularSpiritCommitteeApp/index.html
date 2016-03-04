@@ -10,13 +10,29 @@
     <link href="css/index.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container" ng-controller="NavController as nc">
-        <h4>
-            | <span ng-repeat="link in nc.links">
-                <a href="{{link.url}}">{{link.text}}</a> |
-            </span>
-        </h4>
-    </div>
+    <nav class="navbar navbar-default" role="navigation" ng-controller="NavController as nc">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" 
+                        ng-click="nc.isCollapsed = !nc.isCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Spirit Committee</a>
+            </div>
+            <div class="collapse navbar-collapse"
+                    uib-collapse="nc.isCollapsed">
+                <ul class="nav navbar-nav">
+                    <li ng-repeat="link in nc.links">
+                        <a href="{{link.url}}">{{link.text}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div ng-view></div>
 
     <!-- Cordova reference, this is added to your app when it's built. -->
@@ -25,15 +41,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.min.js"></script>
 
-    <script src="spiritapp/SpiritApp.app.js"></script>
-    <script src="spiritapp/navmodule/spiritapp.NavModule.module.js"></script>
-    <script src="spiritapp/navmodule/navcontroller/spiritapp.navmodule.NavController.controller.js"></script>
-    <script src="spiritapp/eventsmodule/spiritapp.EventsModule.module.js"></script>
-    <script src="spiritapp/eventsmodule/addcommentcontroller/spiritapp.eventsmodule.AddCommentController.controller.js"></script>
-    <script src="spiritapp/eventsmodule/addeventcontroller/spiritapp.eventsmodule.AddEventController.controller.js"></script>
-    <script src="spiritapp/eventsmodule/eventscontroller/spiritapp.eventsmodule.EventsController.controller.js"></script>
-    <script src="spiritapp/eventsmodule/eventdetailcontroller/spiritapp.eventsmodule.EventDetailController.controller.js"></script>
-    <script src="spiritapp/refmodule/spiritapp.RefModule.module.js"></script>
-    <script src="spiritapp/refmodule/refcontroller/spiritapp.refmodule.RefController.controller.js"></script>
+    <script src="spiritapp/Spirit.app.js"></script>
+    <script src="spiritapp/eventsmodules/spirit.app.Events.module.js"></script>
+    <script src="spiritapp/eventsmodules/eventscontrollers/events.module.AddComment.controller.js"></script>
+    <script src="spiritapp/eventsmodules/eventscontrollers/events.module.AddEvent.controller.js"></script>
+    <script src="spiritapp/eventsmodules/eventscontrollers/events.module.Events.controller.js"></script>
+    <script src="spiritapp/eventsmodules/eventscontrollers/events.module.EventDetail.controller.js"></script>
+    <script src="spiritapp/navmodules/spirit.app.Nav.module.js"></script>
+    <script src="spiritapp/navmodules/navcontrollers/nav.module.Nav.controller.js"></script>
+    <script src="spiritapp/refmodules/spirit.app.Ref.module.js"></script>
+    <script src="spiritapp/refmodules/refcontrollers/ref.module.Ref.controller.js"></script>
 </body>
 </html>

@@ -16,7 +16,7 @@
 
         function addComment() {
             $uibModal.open({
-                templateUrl: "spiritapp/eventsmodule/eventsviews/add-comment-view.html",
+                templateUrl: "spiritapp/eventsmodules/eventsviews/add-comment-view.html",
                 size: "lg",
                 controller: "AddCommentController",
                 controllerAs: "acc",

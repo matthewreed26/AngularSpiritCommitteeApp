@@ -110,22 +110,69 @@
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="plugins\org.apache.cordova.splashscreen\.fetch.json" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\CONTRIBUTING.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\doc\de\index.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\doc\es\index.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\doc\fr\index.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\doc\index.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\doc\it\index.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\doc\ja\index.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\doc\ko\index.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\doc\pl\index.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\doc\ru\index.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\doc\zh\index.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\LICENSE" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\NOTICE" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\package.json" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\plugin.xml" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\README.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\RELEASENOTES.md" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\src\android\SplashScreen.java" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\src\blackberry10\index.js" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\src\ios\CDVSplashScreen.h" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\src\ios\CDVSplashScreen.m" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\src\tizen\SplashScreenProxy.js" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\src\ubuntu\splashscreen.cpp" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\src\ubuntu\splashscreen.h" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\src\wp\SplashScreen.cs" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\tests\plugin.xml" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\tests\tests.js" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\www\splashscreen.js" />
+    <Content Include="plugins\org.apache.cordova.splashscreen\www\windows8\SplashScreenProxy.js" />
+    <Content Include="res\icons\android\icon-36-ldpi.png" />
+    <Content Include="res\icons\android\icon-48-mdpi.png" />
+    <Content Include="res\icons\android\icon-72-hdpi.png" />
+    <Content Include="res\icons\android\icon-96-xhdpi.png" />
+    <Content Include="res\icons\icon-ventera.png" />
+    <Content Include="res\screens\android\screen-xhdpi-landscape.png" />
+    <Content Include="res\screens\android\screen-mdpi-landscape.png" />
+    <Content Include="res\screens\android\screen-ldpi-landscape.png" />
+    <Content Include="res\screens\android\screen-hdpi-landscape.png" />
+    <Content Include="res\screens\android\screen-xhdpi-portrait.png" />
+    <Content Include="res\screens\android\screen-mdpi-portrait.png" />
+    <Content Include="res\screens\android\screen-ldpi-portrait.png" />
+    <Content Include="res\screens\android\screen-hdpi-portrait.png" />
+    <Content Include="scripts\index.js" />
     <Content Include="scripts\ui-bootstrap-tpls-1.1.2.min.js" />
-    <Content Include="spiritapp\eventsmodule\addcommentcontroller\spiritapp.eventsmodule.AddCommentController.controller.js" />
-    <Content Include="spiritapp\eventsmodule\addeventcontroller\spiritapp.eventsmodule.AddEventController.controller.js" />
-    <Content Include="spiritapp\eventsmodule\eventdetailcontroller\spiritapp.eventsmodule.EventDetailController.controller.js" />
-    <Content Include="spiritapp\eventsmodule\eventscontroller\spiritapp.eventsmodule.EventsController.controller.js" />
-    <Content Include="spiritapp\eventsmodule\eventsviews\add-comment-view.html" />
-    <Content Include="spiritapp\eventsmodule\eventsviews\event-detail-view.html" />
-    <Content Include="spiritapp\eventsmodule\eventsviews\add-event-view.html" />
-    <Content Include="spiritapp\refmodule\refcontroller\spiritapp.refmodule.RefController.controller.js" />
-    <Content Include="spiritapp\refmodule\refviews\ref-view.html" />
-    <Content Include="spiritapp\refmodule\spiritapp.RefModule.module.js" />
-    <Content Include="spiritapp\eventsmodule\eventsviews\events-view.html" />
-    <Content Include="spiritapp\eventsmodule\spiritapp.EventsModule.module.js" />
-    <Content Include="spiritapp\SpiritApp.app.js" />
-    <Content Include="spiritapp\navmodule\spiritapp.NavModule.module.js" />
-    <Content Include="spiritapp\navmodule\navcontroller\spiritapp.navmodule.NavController.controller.js" />
+    <Content Include="spiritapp\eventsmodules\eventscontrollers\events.module.AddComment.controller.js" />
+    <Content Include="spiritapp\eventsmodules\eventscontrollers\events.module.AddEvent.controller.js" />
+    <Content Include="spiritapp\eventsmodules\eventscontrollers\events.module.EventDetail.controller.js" />
+    <Content Include="spiritapp\eventsmodules\eventscontrollers\events.module.Events.controller.js" />
+    <Content Include="spiritapp\eventsmodules\eventsviews\add-comment-view.html" />
+    <Content Include="spiritapp\eventsmodules\eventsviews\event-detail-view.html" />
+    <Content Include="spiritapp\eventsmodules\eventsviews\add-event-view.html" />
+    <Content Include="spiritapp\refmodules\refcontrollers\ref.module.Ref.controller.js" />
+    <Content Include="spiritapp\refmodules\refviews\ref-view.html" />
+    <Content Include="spiritapp\refmodules\spirit.app.Ref.module.js" />
+    <Content Include="spiritapp\eventsmodules\eventsviews\events-view.html" />
+    <Content Include="spiritapp\eventsmodules\spirit.app.Events.module.js" />
+    <Content Include="spiritapp\Spirit.app.js" />
+    <Content Include="spiritapp\navmodules\spirit.app.Nav.module.js" />
+    <Content Include="spiritapp\navmodules\navcontrollers\nav.module.Nav.controller.js" />
     <Content Include="merges\android\scripts\android2.3-jscompat.js" />
     <Content Include="merges\android\scripts\platformOverrides.js" />
     <Folder Include="images\" />
@@ -133,26 +180,17 @@
     <Content Include="merges\windows\scripts\platformOverrides.js" />
     <Content Include="merges\windows\scripts\winstore-jscompat.js" />
     <Folder Include="merges\wp8\" />
-    <Folder Include="res\icons\android\" />
     <Folder Include="res\icons\ios\" />
     <Folder Include="res\icons\wp8\" />
     <Folder Include="res\icons\windows\" />
-    <Folder Include="res\screens\android\" />
     <Folder Include="res\screens\ios\" />
     <Folder Include="res\screens\windows\" />
     <Folder Include="res\screens\wp8\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="config.xml">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="index.html" />
     <Content Include="scripts\platformOverrides.js" />
     <Content Include="css\index.css" />
-    <Content Include="res\icons\android\icon-36-ldpi.png" />
-    <Content Include="res\icons\android\icon-48-mdpi.png" />
-    <Content Include="res\icons\android\icon-72-hdpi.png" />
-    <Content Include="res\icons\android\icon-96-xhdpi.png" />
     <Content Include="res\icons\ios\icon-40.png" />
     <Content Include="res\icons\ios\icon-40-2x.png" />
     <Content Include="res\icons\ios\icon-50.png" />
@@ -182,14 +220,6 @@
     <Content Include="res\icons\wp8\ApplicationIcon.png" />
     <Content Include="res\icons\wp8\Background.png" />
     <Content Include="res\native\android\ant.properties" />
-    <Content Include="res\screens\android\screen-hdpi-landscape.png" />
-    <Content Include="res\screens\android\screen-hdpi-portrait.png" />
-    <Content Include="res\screens\android\screen-ldpi-landscape.png" />
-    <Content Include="res\screens\android\screen-ldpi-portrait.png" />
-    <Content Include="res\screens\android\screen-mdpi-landscape.png" />
-    <Content Include="res\screens\android\screen-mdpi-portrait.png" />
-    <Content Include="res\screens\android\screen-xhdpi-landscape.png" />
-    <Content Include="res\screens\android\screen-xhdpi-portrait.png" />
     <Content Include="res\screens\ios\screen-ipad-landscape.png" />
     <Content Include="res\screens\ios\screen-ipad-landscape-2x.png" />
     <Content Include="res\screens\ios\screen-ipad-portrait.png" />

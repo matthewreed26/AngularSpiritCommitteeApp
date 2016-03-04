@@ -11,7 +11,7 @@
 
         function addEvent() {
             $uibModal.open({
-                templateUrl: "spiritapp/eventsmodule/eventsviews/add-event-view.html",
+                templateUrl: "spiritapp/eventsmodules/eventsviews/add-event-view.html",
                 size: "lg",
                 controller: "AddEventController",
                 controllerAs: "aec",
