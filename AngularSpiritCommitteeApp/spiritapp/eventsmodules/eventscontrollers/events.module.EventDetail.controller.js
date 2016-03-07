@@ -1,9 +1,9 @@
 ﻿(function () {
     angular.module("EventsModule").controller("EventDetailController", EventDetailController);
     
-    EventDetailController.$inject = ["RefConstants", "$routeParams", "$uibModal"];
+    EventDetailController.$inject = ["RefConstants", "EventsData", "$routeParams", "$uibModal"];
 
-    function EventDetailController(RefConstants, $routeParams, $uibModal) {
+    function EventDetailController(RefConstants, EventsData, $routeParams, $uibModal) {
         var edc = this;
         edc.refStatuses = RefConstants.statuses;
         edc.event = {

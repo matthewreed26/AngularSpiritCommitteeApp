@@ -28,14 +28,14 @@ input.ng-dirty.ng-valid {background-color:lightgreen}
 
 .preparation, .panel-heading.preparation {
     color: black;
-    background-color: green;
-    border-color: green
+    background-color: limegreen;
+    border-color: limegreen
 }
 
 .publicizing, .panel-heading.publicizing {
     color: black;
-    background-color: blue;
-    border-color: blue
+    background-color: cornflowerblue;
+    border-color: cornflowerblue
 }
 
 .execution, .panel-heading.execution {

@@ -1,15 +1,29 @@
 ﻿(function () {
     angular.module("EventsModule").controller("EventsController", EventsController);
     
-    EventsController.$inject = ["RefConstants", "$uibModal"];
+    EventsController.$inject = ["RefConstants", "EventsData", "$uibModal"];
 
-    function EventsController(RefConstants, $uibModal) {
+    function EventsController(RefConstants, EventsData, $uibModal) {
         var ec = this;
         ec.refStatuses = RefConstants.statuses;
         ec.events = [];
         ec.addEvent = addEvent;
         ec.progressEventBack = progressEventBack;
         ec.progressEventForward = progressEventForward;
+        ec.refreshEvents = refreshEvents;
+        refreshEvents();
+
+        function refreshEvents() {
+            var currentEvents = [];
+            for (var i = 0; i < EventsData.eventsList.length; i++) {
+                for (var j = 0; j < EventsData.eventsList[i].length; j++) {
+                    if (EventsData.eventsList[i][j].endDate == undefined) {
+                        currentEvents.push(EventsData.eventsList[i][j]);
+                    }
+                }
+            }
+            ec.events = currentEvents;
+        };
 
         function addEvent() {
             $uibModal.open({
@@ -17,7 +31,13 @@
                 size: "lg",
                 controller: "AddEventController",
                 controllerAs: "aec",
-            }).result.then(function (newEvent) {ec.events.push(newEvent);});
+                resolve: { currentEventID: ec.events.length }
+            }).result.then(function (newEvent) {
+                var newEventsArray = [];
+                newEventsArray.push(newEvent);
+                EventsData.eventsList.push(newEventsArray);
+                refreshEvents();
+            });
         }
 
         function progressEventBack(event) {
@@ -25,7 +45,7 @@
                 templateUrl: "spiritapp/eventsmodules/eventsviews/add-comment-view.html",
                 size: "lg",
                 controller: "AddCommentController",
-                controllerAs: "acc",
+                controllerAs: "acc"
             }).result.then(function (newComment) {
                 //edc.event.comments.push(newComment);
                 event.currentStatusID--;
@@ -37,7 +57,7 @@
                 templateUrl: "spiritapp/eventsmodules/eventsviews/add-comment-view.html",
                 size: "lg",
                 controller: "AddCommentController",
-                controllerAs: "acc",
+                controllerAs: "acc"
             }).result.then(function (newComment) {
                 //edc.event.comments.push(newComment);
                 event.currentStatusID++;

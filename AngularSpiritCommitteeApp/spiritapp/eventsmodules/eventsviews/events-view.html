@@ -13,13 +13,13 @@
             </div>
             <div uib-collapse="event.isCollapsed">
                 <div class="panel-body">
-                    <h4>Quick Event Details</h4>
-                    <p><label>Current Status:</label> {{ec.refStatuses[event.currentStatusID].statusName}}</p>
-                    <p><label>Started:</label> {{event.startDate | date:"MMM d, y"}}</p>
-                    <p ng-show="event.endDate"><label>Ended:</label> {{event.endDate | date:'MMM d, y'}}</p>
-                    <p><label>Last Updated:</label> {{event.lastUpdated | date:'MMM d, y'}}</p>
+                    <h4>Quick Event Status Details</h4>
+                    <p><label>Current Status:</label> {{ec.refStatuses[event.currentStatusID].statusName}}<br/>
+                    <label>Started:</label> {{event.startDate | date:"MMM d, y"}}<br/>
+                    <span ng-show="event.endDate"><label>Ended:</label> {{event.endDate | date:'MMM d, y'}}<br/></span>
+                    <label>Last Updated:</label> {{event.lastUpdated | date:'MMM d, y'}}</p>
                     <a class="btn btn-primary" href="#/events/{{event.eventName}}/{{event.currentStatusID}}/{{event.startDate.toString()}}">
-                        Event Details
+                        More Details
                     </a>
                     <div ng-show="(ec.refStatuses[event.currentStatusID - 1].statusCode && ec.refStatuses[event.currentStatusID].canProgressBack)
                         || ec.refStatuses[$index + 1].statusCode">
