@@ -1,1 +1,1 @@
-﻿angular.module("EventsModule", []);
+﻿angular.module("EventsModule", []).value("EventsData", [[]]);

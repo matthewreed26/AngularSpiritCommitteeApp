@@ -1,24 +1,15 @@
 ﻿(function () {
     angular.module("EventsModule").controller("AddEventController", AddEventController);
     
-    AddEventController.$inject = ["$uibModalInstance", "currentEventID"];
+    AddEventController.$inject = ["$uibModalInstance"];
 
-    function AddEventController($uibModalInstance, currentEventID) {
+    function AddEventController($uibModalInstance) {
         var aec = this;
         aec.add = add;
         aec.cancel = cancel;
 
         function add() {
-            $uibModalInstance.close({
-                eventID: currentEventID,
-                eventName: aec.eventName,
-                currentStatusID: 1,
-                startDate: new Date(),
-                endDate: undefined,
-                comments: [],
-                lastUpdated: new Date(),
-                isCollapsed: true
-            });
+            $uibModalInstance.close(aec.eventName);
         }
 
         function cancel() {

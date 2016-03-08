@@ -1,13 +1,13 @@
 ﻿(function () {
     angular.module("EventsModule").controller("EventsController", EventsController);
     
-    EventsController.$inject = ["RefConstants", "EventsData", "$uibModal"];
+    EventsController.$inject = ["RefConstants", "EventsData", "Event", "$uibModal"];
 
-    function EventsController(RefConstants, EventsData, $uibModal) {
+    function EventsController(RefConstants, EventsData, Event, $uibModal) {
         var ec = this;
         ec.refStatuses = RefConstants.statuses;
         ec.events = [];
-        ec.addEvent = addEvent;
+        ec.addNewEvent = addNewEvent;
         ec.progressEventBack = progressEventBack;
         ec.progressEventForward = progressEventForward;
         ec.refreshEvents = refreshEvents;
@@ -15,27 +15,26 @@
 
         function refreshEvents() {
             var currentEvents = [];
-            for (var i = 0; i < EventsData.eventsList.length; i++) {
-                for (var j = 0; j < EventsData.eventsList[i].length; j++) {
-                    if (EventsData.eventsList[i][j].endDate == undefined) {
-                        currentEvents.push(EventsData.eventsList[i][j]);
+            for (var i = 0; i < EventsData.length; i++) {
+                for (var j = 0; j < EventsData[i].length; j++) {
+                    if (EventsData[i][j].endDate == undefined) {
+                        currentEvents.push(EventsData[i][j]);
                     }
                 }
             }
             ec.events = currentEvents;
         };
 
-        function addEvent() {
+        function addNewEvent() {
             $uibModal.open({
                 templateUrl: "spiritapp/eventsmodules/eventsviews/add-event-view.html",
                 size: "lg",
                 controller: "AddEventController",
-                controllerAs: "aec",
-                resolve: { currentEventID: ec.events.length }
-            }).result.then(function (newEvent) {
+                controllerAs: "aec"
+            }).result.then(function (eventName) {
                 var newEventsArray = [];
-                newEventsArray.push(newEvent);
-                EventsData.eventsList.push(newEventsArray);
+                newEventsArray.push(Event.init(EventsData.length, eventName));
+                EventsData.push(newEventsArray);
                 refreshEvents();
             });
         }
