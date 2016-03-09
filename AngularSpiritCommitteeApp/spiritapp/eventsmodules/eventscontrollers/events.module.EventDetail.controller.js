@@ -8,7 +8,7 @@
         edc.refStatuses = RefConstants.statuses;
         edc.event = {
             eventName: $routeParams.eventName,
-            currentStatusID: $routeParams.currentStatusID,
+            statusID: $routeParams.statusID,
             startDate: new Date($routeParams.startDate),
             comments: []
         };

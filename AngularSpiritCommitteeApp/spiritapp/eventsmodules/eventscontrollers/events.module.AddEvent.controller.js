@@ -9,7 +9,10 @@
         aec.cancel = cancel;
 
         function add() {
-            $uibModalInstance.close(aec.eventName);
+            $uibModalInstance.close({
+                eventName: aec.eventName,
+                eventComments: aec.eventComments
+            });
         }
 
         function cancel() {

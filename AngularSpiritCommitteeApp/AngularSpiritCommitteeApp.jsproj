@@ -162,6 +162,7 @@
     <Content Include="spiritapp\eventsmodules\eventscontrollers\events.module.AddEvent.controller.js" />
     <Content Include="spiritapp\eventsmodules\eventscontrollers\events.module.EventDetail.controller.js" />
     <Content Include="spiritapp\eventsmodules\eventscontrollers\events.module.Events.controller.js" />
+    <Content Include="spiritapp\eventsmodules\eventsproviders\events.module.EventsDataAssistant.service.js" />
     <Content Include="spiritapp\eventsmodules\eventsproviders\events.module.Event.factory.js" />
     <Content Include="spiritapp\eventsmodules\eventsviews\add-comment-view.html" />
     <Content Include="spiritapp\eventsmodules\eventsviews\event-detail-view.html" />

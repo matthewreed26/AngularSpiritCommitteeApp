@@ -1,5 +1,5 @@
 ﻿<div class="modal-header">
-    <h2>Add A New Event</h2>
+    <h2>Add A New Spirit Committee Event</h2>
 </div>
 <form novalidate class="form-horizontal" name="aec.editForm">
     <div class="modal-body">
@@ -7,7 +7,10 @@
             <label>Event Name: </label><input required type="text" name="eventName"
                     class="form-control" ng-model="aec.eventName" />
             <span ng-show="aec.editForm.eventName.$dirty 
-                  && aec.editForm.eventName.$error.required">Event Name is required</span>
+                  && aec.editForm.eventName.$error.required" style="color:red">Event Name is required<br/></span>
+            <br/>
+            <label>Comments: </label><input type="text" name="eventComments" placeholder="Optional"
+                    class="form-control" ng-model="aec.eventComments" />
         </div>
     </div>
     <div class="modal-footer">

@@ -1,29 +1,15 @@
 ﻿(function () {
     angular.module("EventsModule").controller("EventsController", EventsController);
     
-    EventsController.$inject = ["RefConstants", "EventsData", "Event", "$uibModal"];
+    EventsController.$inject = ["RefConstants", "EventsDataAssistant", "$uibModal"];
 
-    function EventsController(RefConstants, EventsData, Event, $uibModal) {
+    function EventsController(RefConstants, EventsDataAssistant, $uibModal) {
         var ec = this;
         ec.refStatuses = RefConstants.statuses;
-        ec.events = [];
+        ec.events = EventsDataAssistant.refreshedCurrentEvents();
         ec.addNewEvent = addNewEvent;
         ec.progressEventBack = progressEventBack;
         ec.progressEventForward = progressEventForward;
-        ec.refreshEvents = refreshEvents;
-        refreshEvents();
-
-        function refreshEvents() {
-            var currentEvents = [];
-            for (var i = 0; i < EventsData.length; i++) {
-                for (var j = 0; j < EventsData[i].length; j++) {
-                    if (EventsData[i][j].endDate == undefined) {
-                        currentEvents.push(EventsData[i][j]);
-                    }
-                }
-            }
-            ec.events = currentEvents;
-        };
 
         function addNewEvent() {
             $uibModal.open({
@@ -31,11 +17,9 @@
                 size: "lg",
                 controller: "AddEventController",
                 controllerAs: "aec"
-            }).result.then(function (eventName) {
-                var newEventsArray = [];
-                newEventsArray.push(Event.init(EventsData.length, eventName));
-                EventsData.push(newEventsArray);
-                refreshEvents();
+            }).result.then(function (eventInfo) {
+                EventsDataAssistant.addNewEvent(eventInfo);
+                ec.events = EventsDataAssistant.refreshedCurrentEvents();
             });
         }
 
@@ -47,7 +31,7 @@
                 controllerAs: "acc"
             }).result.then(function (newComment) {
                 //edc.event.comments.push(newComment);
-                event.currentStatusID--;
+                //event.currentStatusID--;
             });
         }
 
@@ -59,7 +43,7 @@
                 controllerAs: "acc"
             }).result.then(function (newComment) {
                 //edc.event.comments.push(newComment);
-                event.currentStatusID++;
+                //event.currentStatusID++;
             });
         }
     }

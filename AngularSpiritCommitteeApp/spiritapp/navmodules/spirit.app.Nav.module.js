@@ -4,7 +4,7 @@
             templateUrl: "spiritapp/refmodules/refviews/ref-view.html",
             controller: "RefController",
             controllerAs: "rc"
-        }).when("/events/:eventName/:currentStatusID/:startDate", {
+        }).when("/events/:eventName/:statusID/:startDate", {
             templateUrl: "spiritapp/eventsmodules/eventsviews/event-detail-view.html",
             controller: "EventDetailController",
             controllerAs: "edc"

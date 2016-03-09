@@ -3,9 +3,9 @@
     <div class="panel-group">
         <h4>Event Inception: {{edc.event.startDate | date:"MMM d, y"}}</h4>
         <div class="panel panel-default">
-            <div class="panel-heading {{edc.refStatuses[edc.event.currentStatusID].statusCode}}" style="overflow:hidden">
+            <div class="panel-heading {{edc.refStatuses[edc.event.statusID].statusCode}}" style="overflow:hidden">
                 <h4 class="panel-title">
-                    <span>{{edc.refStatuses[edc.event.currentStatusID].statusName}} <button 
+                    <span>{{edc.refStatuses[edc.event.statusID].statusName}} <button 
                             class="btn btn-primary" ng-click="edc.addComment()" style="float: right">Add Comments</button>
                     </span>
                 </h4>
