@@ -6,7 +6,7 @@
     function EventsController(RefConstants, EventsDataAssistant, $uibModal) {
         var ec = this;
         ec.refStatuses = RefConstants.statuses;
-        ec.events = EventsDataAssistant.refreshedCurrentEvents();
+        ec.events = EventsDataAssistant.getEvents();
         ec.addNewEvent = addNewEvent;
         ec.progressEventBack = progressEventBack;
         ec.progressEventForward = progressEventForward;
@@ -18,8 +18,7 @@
                 controller: "AddEventController",
                 controllerAs: "aec"
             }).result.then(function (eventInfo) {
-                EventsDataAssistant.addNewEvent(eventInfo);
-                ec.events = EventsDataAssistant.refreshedCurrentEvents();
+                ec.events = EventsDataAssistant.addNewEvent(eventInfo);
             });
         }
 

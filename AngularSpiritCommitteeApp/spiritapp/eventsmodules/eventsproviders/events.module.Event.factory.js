@@ -1,24 +1,19 @@
 ﻿(function (){
-    angular.module("EventsModule").factory("Event", function () {
+    angular.module("EventsModule").factory("Event", ["EventStatusProgression", function (EventStatusProgression) {
         return {
-            init: function (currentEventProgressionID, currentEventName, currentStatusID, addedComments) {
+            init: function (eventID, eventName, currentStatusID, comments) {
+                var initDate = new Date();
                 return {
-                    eventProgressionID: currentEventProgressionID,
-                    eventName: currentEventName,
-                    statusID: currentStatusID,
-                    startDate: new Date(),
-                    endDate: undefined,
-                    comments: function (addedComments) {
-                        var commentsArray = [];
-                        if (addedComments != undefined && addedComments != "") {
-                            commentsArray.push(addedComments);
-                        }
-                        return commentsArray;
-                    },
-                    lastUpdated: new Date(),
+                    eventID: eventID,
+                    eventName: eventName,
+                    currentStatusID: currentStatusID,
+                    currentStatusStartDate: initDate,
+                    currentStatusEndDate: undefined,
+                    currentStatusLastUpdated: initDate,
+                    statusesProgression: EventStatusProgression.init(initDate, comments),
                     isCollapsed: true
                 };
             }
         }
-    });
+    }]);
 })();

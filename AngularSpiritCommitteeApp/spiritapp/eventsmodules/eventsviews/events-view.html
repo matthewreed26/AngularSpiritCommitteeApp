@@ -2,7 +2,7 @@
     <h1>Events</h1>
     <div class="panel-group" id="accordion">
         <div class="panel panel-default" ng-repeat="event in ec.events">
-            <div class="panel-heading {{ec.refStatuses[event.statusID].statusCode}}"
+            <div class="panel-heading {{ec.refStatuses[event.currentStatusID].statusCode}}"
                     data-parent="#accordion" ng-click="event.isCollapsed = !event.isCollapsed"
                     style="overflow:hidden">
                 <h4 class="panel-title">
@@ -14,26 +14,26 @@
             <div uib-collapse="event.isCollapsed">
                 <div class="panel-body">
                     <h4>Quick Event Status Details</h4>
-                    <p><label>Current Status:</label> {{ec.refStatuses[event.statusID].statusName}}<br/>
-                    <label>Started:</label> {{event.startDate | date:"MMM d, y"}}<br/>
-                    <span ng-show="event.endDate"><label>Ended:</label> {{event.endDate | date:'MMM d, y'}}<br/></span>
-                    <label>Last Updated:</label> {{event.lastUpdated | date:'MMM d, y'}}</p>
+                    <p><label>Current Status:</label> {{ec.refStatuses[event.currentStatusID].statusName}}<br/>
+                    <label>Started:</label> {{event.currentStatusStartDate | date:"MMM d, y"}}<br/>
+                    <span ng-show="event.currentStatusEndDate"><label>Ended:</label> {{event.currentStatusEndDate | date:'MMM d, y'}}<br/></span>
+                    <label>Last Updated:</label> {{event.currentStatusLastUpdated | date:'MMM d, y'}}</p>
                     <a class="btn btn-primary" href="#/events/{{event.eventProgressionID}}">
                         More Details
                     </a>
-                    <div ng-show="(ec.refStatuses[event.statusID - 1].statusCode && ec.refStatuses[event.statusID].canProgressBack)
+                    <div ng-show="(ec.refStatuses[event.currentStatusID - 1].statusCode && ec.refStatuses[event.currentStatusID].canProgressBack)
                         || ec.refStatuses[$index + 1].statusCode">
                         <h4>Progress event to:</h4>
-                        <button class="btn {{ec.refStatuses[event.statusID - 1].statusCode}}"
-                                ng-show="ec.refStatuses[event.statusID - 1].statusCode && ec.refStatuses[event.statusID].canProgressBack"
+                        <button class="btn {{ec.refStatuses[event.currentStatusID - 1].statusCode}}"
+                                ng-show="ec.refStatuses[event.currentStatusID - 1].statusCode && ec.refStatuses[event.currentStatusID].canProgressBack"
                                 ng-click="ec.progressEventBack(event)">
-                            {{ec.refStatuses[event.statusID - 1].statusName}}
+                            {{ec.refStatuses[event.currentStatusID - 1].statusName}}
                             <span class="glyphicon glyphicon-arrow-up"></span>
                         </button>
-                        <button class="btn {{ec.refStatuses[event.statusID + 1].statusCode}}"
-                                ng-show="ec.refStatuses[event.statusID + 1].statusCode"
+                        <button class="btn {{ec.refStatuses[event.currentStatusID + 1].statusCode}}"
+                                ng-show="ec.refStatuses[event.currentStatusID + 1].statusCode"
                                 ng-click="ec.progressEventForward(event)">
-                            {{ec.refStatuses[event.statusID+1].statusName}}
+                            {{ec.refStatuses[event.currentStatusID + 1].statusName}}
                             <span class="glyphicon glyphicon-arrow-down"></span>
                         </button>
                     </div>

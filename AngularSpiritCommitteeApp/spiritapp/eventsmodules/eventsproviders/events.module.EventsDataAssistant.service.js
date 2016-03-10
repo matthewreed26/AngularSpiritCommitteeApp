@@ -31,28 +31,19 @@
         };
 
         return {
+            getEvents: function () {
+                return EventsData;
+            },
             addNewEvent: function (eventInfo) {
-                var newEventsArray = [];
-                newEventsArray.push(Event.init(EventsData.length, eventInfo.eventName, 1,
+                EventsData.push(Event.init(EventsData.length, eventInfo.eventName, 1,
                         eventInfo.eventComments));
-                EventsData.push(newEventsArray);
+                return EventsData;
             },
             progressEventBack: function (event, addedComments) {
                 progressEvent(event, addedComments, -1);
             },
             progressEventForward: function (event, addedComments) {
                 progressEvent(event, addedComments, 1);
-            },
-            refreshedCurrentEvents: function () {
-                var currentEvents = [];
-                for (var i = 0; i < EventsData.length; i++) {
-                    for (var j = 0; j < EventsData[i].length; j++) {
-                        if (EventsData[i][j].endDate == undefined) {
-                            currentEvents.push(EventsData[i][j]);
-                        }
-                    }
-                }
-                return currentEvents;
             },
             getEventProgression: function (currentEventProgressionID) {
                 return EventsData[findEventProgressionIndex(currentEventProgressionID)];
