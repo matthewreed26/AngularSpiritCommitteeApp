@@ -1,17 +1,12 @@
 ﻿(function () {
     angular.module("EventsModule").controller("EventDetailController", EventDetailController);
     
-    EventDetailController.$inject = ["RefConstants", "EventsData", "$routeParams", "$uibModal"];
+    EventDetailController.$inject = ["RefConstants", "EventsDataAssistant", "$routeParams", "$uibModal"];
 
-    function EventDetailController(RefConstants, EventsData, $routeParams, $uibModal) {
+    function EventDetailController(RefConstants, EventsDataAssistant, $routeParams, $uibModal) {
         var edc = this;
         edc.refStatuses = RefConstants.statuses;
-        edc.event = {
-            eventName: $routeParams.eventName,
-            statusID: $routeParams.statusID,
-            startDate: new Date($routeParams.startDate),
-            comments: []
-        };
+        edc.eventProgression = EventsDataAssistant.getEventProgression($routeParams.eventProgressionID);
         edc.addComment = addComment;
 
         function addComment() {

@@ -18,7 +18,7 @@
                     <label>Started:</label> {{event.startDate | date:"MMM d, y"}}<br/>
                     <span ng-show="event.endDate"><label>Ended:</label> {{event.endDate | date:'MMM d, y'}}<br/></span>
                     <label>Last Updated:</label> {{event.lastUpdated | date:'MMM d, y'}}</p>
-                    <a class="btn btn-primary" href="#/events/{{event.eventName}}/{{event.statusID}}/{{event.startDate.toString()}}">
+                    <a class="btn btn-primary" href="#/events/{{event.eventProgressionID}}">
                         More Details
                     </a>
                     <div ng-show="(ec.refStatuses[event.statusID - 1].statusCode && ec.refStatuses[event.statusID].canProgressBack)

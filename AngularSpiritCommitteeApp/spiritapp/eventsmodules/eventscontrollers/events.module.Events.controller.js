@@ -30,8 +30,8 @@
                 controller: "AddCommentController",
                 controllerAs: "acc"
             }).result.then(function (newComment) {
-                //edc.event.comments.push(newComment);
-                //event.currentStatusID--;
+                EventsDataAssistant.progressEventBack(event);
+                ec.events = EventsDataAssistant.refreshedCurrentEvents();
             });
         }
 
@@ -42,8 +42,8 @@
                 controller: "AddCommentController",
                 controllerAs: "acc"
             }).result.then(function (newComment) {
-                //edc.event.comments.push(newComment);
-                //event.currentStatusID++;
+                EventsDataAssistant.progressEventForward(event);
+                ec.events = EventsDataAssistant.refreshedCurrentEvents();
             });
         }
     }

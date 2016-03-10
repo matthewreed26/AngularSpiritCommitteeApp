@@ -1,9 +1,9 @@
 ﻿(function (){
     angular.module("EventsModule").factory("Event", function () {
         return {
-            init: function (currentEventID, currentEventName, currentStatusID, addedComments) {
+            init: function (currentEventProgressionID, currentEventName, currentStatusID, addedComments) {
                 return {
-                    eventID: currentEventID,
+                    eventProgressionID: currentEventProgressionID,
                     eventName: currentEventName,
                     statusID: currentStatusID,
                     startDate: new Date(),
